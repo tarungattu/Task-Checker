@@ -10,7 +10,7 @@ const Task = ({ id, tasktext, onDelete, onEdit, isCompleted, handleCheckbox }) =
                 <input
                     onChange={handleCheckbox}
                     type="checkbox"
-                    className='mx-3 w-6 accent-purple-600'
+                    className='mx-3 scale-175 accent-purple-600'
                     checked={isCompleted}
                     name = {id}
                 />
