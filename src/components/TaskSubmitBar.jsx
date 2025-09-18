@@ -1,6 +1,6 @@
 import React from 'react'
 import { RiAddCircleFill } from "react-icons/ri";
-const TaskSubmitBar = ({ todo, onChange, onAdd, showFinished, toggleFinised }) => {
+const TaskSubmitBar = ({ todo, onChange, onAdd, showFinished, toggleFinished }) => {
 
   return (
     <div>
@@ -26,7 +26,7 @@ const TaskSubmitBar = ({ todo, onChange, onAdd, showFinished, toggleFinised }) =
 
           <input type="checkbox"
             checked={showFinished}
-            onChange={toggleFinised}
+            onChange={toggleFinished}
             className={`mr-3 scale-175 accent-purple-600`}
           />
           <div className="text text-sm sm:text-base lg:text-xl">Show Checked</div>

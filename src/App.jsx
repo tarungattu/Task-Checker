@@ -12,15 +12,25 @@ import Task from './components/Task'
 
 function App() {
   const [todo, setTodo] = useState("")
-  const [todos, setTodos] = useState([])
+  const [todos, setTodos] = useState(() => {
+    const todosString = localStorage.getItem("todos");
+    return todosString ? JSON.parse(todosString) : [];
+  })
 
+  // Load from localStorage on first render
   useEffect(() => {
-    let todosstring = localStorage.getItem("todos");
-    if (todosstring) {
-      let todos = JSON.parse(localStorage.getItem("todos"));
-      setTodos(todos);
+    const todosString = localStorage.getItem("todos")
+    if (todosString) {
+      setTodos(JSON.parse(todosString))
     }
+    console.log(todos)
   }, [])
+
+  // Save to localStorage whenever todos change
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos))
+    console.log(localStorage.getItem("todos"));
+  }, [todos])
 
   const [showFinished, setShowFinished] = useState(false)
 
@@ -32,7 +42,7 @@ function App() {
   const toggleFinished = (params) => {
     setShowFinished(!showFinished);
   }
-  
+
 
   const handleEdit = (e, id) => {
     let t = todos.filter(item => {
@@ -44,7 +54,6 @@ function App() {
       return item.id !== id;
     });
     setTodos(newTodos);
-    saveToLocal();
   }
 
   const handleDelete = (e, id) => {
@@ -53,13 +62,11 @@ function App() {
       return item.id !== id
     });
     setTodos(newTodos)
-    saveToLocal()
   }
 
   const handleAdd = () => {
     setTodos([...todos, { id: uuidv4(), todo, isCompleted: false }])
     setTodo("")
-    saveToLocal()
   }
 
   const handleChange = (e) => {
@@ -75,7 +82,6 @@ function App() {
     let newTodos = [...todos];
     newTodos[index].isCompleted = !newTodos[index].isCompleted;
     setTodos(newTodos);
-    saveToLocal();
   }
 
 
@@ -88,7 +94,7 @@ function App() {
         onChange={handleChange}
         onAdd={handleAdd}
         showFinished={showFinished}
-        toggleFinised={toggleFinished}
+        toggleFinished={toggleFinished}
       />
 
 
