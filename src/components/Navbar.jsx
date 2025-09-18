@@ -4,7 +4,7 @@ const Navbar = () => {
     return (
         <div>
             <nav className='flex bg-[#5e2597] items-center justify-between text-white'>
-                <img src="src/assets/cody.png" alt="coder-turtle" className='max-w-[12%] translate-x-4' />
+                <img src="public/cody.png" alt="coder-turtle" className='max-w-[12%] translate-x-4' />
 
                 <div className="Heading text-center text-2xl sm:text-5xl cursor-pointer hover:font-bold transition-all duration-100 color-cycle-hover w-full sm:w-auto sm:translate-x-0 -translate-x-4">Task Checker</div>
                 
