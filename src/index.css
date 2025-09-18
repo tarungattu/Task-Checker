@@ -1,7 +1,15 @@
 @import "tailwindcss";
 
-* {
-  margin: 0;
-  padding: 0;
+@keyframes colorCycle {
+  0%   { color: white; }
+  20%  { color: orange; }
+  40% { color: white; }
 }
+
+.color-cycle-hover:hover {
+  animation: colorCycle 1.5s ease-in-out forwards;
+}
+
+
+
 
