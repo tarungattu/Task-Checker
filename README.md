@@ -28,7 +28,7 @@ This application uses React, Vite, and Tailwind CSS to let users store tasks on 
 1.  **Clone the repository:**
 
     ```bash
-    git clone https://github.com/your-username/your-repository.git
+    git clone https://github.com/tarungattu/Task-Checker.git
     ```
 
 2.  **Navigate to the `Task-Checker` directory and install dependencies:**
